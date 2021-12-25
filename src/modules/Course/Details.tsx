@@ -18,42 +18,57 @@ const blockContent = `AntV 是蚂蚁金服全新一代数据可视化解决方�
 我们正在基础图表，图分析，图编辑，地理空间可视化，智能可视化等各个可视化的领域耕耘，欢迎同路人一起前行。`;
 
 class Details extends React.Component {
+  // 保存数据的地方
+  data = {
+    userInfo: {
+      name: '计算机程序的构造和解释',
+      img:
+        'https://pic1.zhimg.com/a9a329eec0251d7a69f71db309453feb_1200x500.jpg',
+      lecturer: '独不迁',
+      telephone: 'dubuqian@outlook.com',
+      propaedeutics: '无',
+      textbox:
+        'The Structure and Interpretation of Computer Programs, 2nd Edition, MIT Press',
+    },
+  };
   render() {
     return (
       <div>
-        <Row align="middle">
-          <Col span={4} offset={2}>
+        {/* 作品介绍 */}
+        <Row align="middle" style={{ padding: '24px 0' }}>
+          <Col span={4}>
             <Image
               width={160}
               height={200}
               preview={false}
-              src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              src={this.data.userInfo.img}
             />
           </Col>
-          <Col span={16}>
-            <Descriptions title="User Info" column={1}>
-              <Descriptions.Item label="UserName">
-                Zhou Maomao
+          <Col span={20}>
+            <Descriptions title="基本信息" column={1}>
+              <Descriptions.Item label="名称">
+                {this.data.userInfo.name}
               </Descriptions.Item>
-              <Descriptions.Item label="Telephone">
-                1810000000
+              <Descriptions.Item label="授课人">
+                {this.data.userInfo.lecturer}
               </Descriptions.Item>
-              <Descriptions.Item label="Live">
-                Hangzhou, Zhejiang
+              <Descriptions.Item label="邮箱">
+                {this.data.userInfo.telephone}
               </Descriptions.Item>
-              <Descriptions.Item label="Address">
-                No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
-                No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
-                No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
-                No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
-                No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
+              <Descriptions.Item label="前置需求">
+                {this.data.userInfo.propaedeutics}
+              </Descriptions.Item>
+              <Descriptions.Item label="教材">
+                {this.data.userInfo.textbox}
               </Descriptions.Item>
             </Descriptions>
             ,
           </Col>
         </Row>
+
+        {/*  */}
         <Row>
-          <Col span={20} offset={2}>
+          <Col span={24}>
             <Typography>
               <Divider />
 
@@ -94,8 +109,10 @@ class Details extends React.Component {
             ,
           </Col>
         </Row>
+
+        {/*  */}
         <Row>
-          <Col offset={2} span={20}>
+          <Col span={24}>
             <Title>文章目錄</Title>
             <SearchTree />
           </Col>
