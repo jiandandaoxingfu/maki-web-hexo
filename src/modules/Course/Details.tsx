@@ -8,14 +8,13 @@ import {
   Descriptions,
   Typography,
   Divider,
-  Tree,
-  Input,
+  Card,
+  Anchor,
 } from 'antd';
+import { CourseCatalogue } from './CourseCatalogue';
 
-const { Title, Paragraph, Text, Link } = Typography;
-
-const blockContent = `AntV 是蚂蚁金服全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
-我们正在基础图表，图分析，图编辑，地理空间可视化，智能可视化等各个可视化的领域耕耘，欢迎同路人一起前行。`;
+const { Title, Paragraph, Text } = Typography;
+const { Link } = Anchor;
 
 class Details extends React.Component {
   // 保存数据的地方
@@ -30,12 +29,183 @@ class Details extends React.Component {
       textbox:
         'The Structure and Interpretation of Computer Programs, 2nd Edition, MIT Press',
     },
+    courseIntroductionL: `倘若大家对 <Text strong>SICP</Text> 有所耳闻，也一定对它 “魔法书” 的称号有所了解，书中将编写程序当作是自己写作魔力去控制计算机中的精灵。
+    从这本书的封面，到作者的引言，都充满了生趣——是的，我使用了生趣一词。可能在诸多的误传中，<Text strong>SICP</Text> 被描述成了一部极难理解的作品，
+    但这种观点毫无疑问是错误的。在之前的 MIT，这本书不过是<Text strong>大一电气工程和计算机科学专业的必修课。</Text>作者笔调轻盈，语言幽默典雅，
+    是<Text strong>不可多得的佳品。</Text>它更是可以大幅提高我们对大型项目的掌握能力，让我们面对卷帙浩繁的程序知道如何下手理解；
+    对我们编写大型项目也是大有裨益；随着对程序设计语言的深入挖掘，我们对程序设计语言的理解也会深入恳綮。`,
+    learnMethod:
+      '很多人觉得，我将视频看过一遍，便能完全掌握其中内容。但事实上，复习才是学习的重中之重，因此我推荐大家看完课程录像后，能够根据笔记尝试复盘，若是能在脑中对知识的结构有足够清晰的架构，那才算真正完全掌握',
+    lanternSlide: {
+      address:
+        'https://dubuqian.cn/courses/static/slides/cst1b10/Lecture-1-Introduction.pdf',
+      name:
+        'Lecture 1: Introduction & A Swift and Brutal Introduction to Racket  (English)',
+    },
+    work: '第一单元小结 抄写10遍',
+    classVideo: '老师上课讲的内容，自己脑中回顾一遍',
+    catalogue: [
+      {
+        title: '出版者的话',
+        key: '出版者的话',
+      },
+      {
+        title: '专家指导委员会',
+        key: '专家指导委员会',
+      },
+      {
+        title: '序',
+        key: '序',
+      },
+      {
+        title: '第2版前言',
+        key: '第2版前言',
+      },
+      {
+        title: '第1版前言',
+        key: '第1版前言',
+      },
+      {
+        title: '致谢',
+        key: '致谢',
+      },
+      {
+        title: '第1章 构造过程抽象',
+        key: '第1章 构造过程抽象',
+        children: [
+          {
+            title: '1.1 程序设计的基本元素',
+            key: '1.1 程序设计的基本元素',
+          },
+          {
+            title: '1.2 过程与它们所产生的计算',
+            key: '1.2 过程与它们所产生的计算',
+          },
+          {
+            title: '1.3 用高阶函数做抽象',
+            key: '1.3 用高阶函数做抽象',
+          },
+        ],
+      },
+      {
+        title: '第2章 构造数据现象',
+        key: '第2章 构造数据现象',
+        children: [
+          {
+            title: '2.1 数据抽象导引',
+            key: '2.1 数据抽象导引',
+          },
+          {
+            title: '2.2 层次性数据和闭包性质',
+            key: '2.2 层次性数据和闭包性质',
+          },
+          {
+            title: '2.3 符号数据',
+            key: '2.3 符号数据',
+          },
+          {
+            title: '2.4 抽象数据的多重表示',
+            key: '2.4 抽象数据的多重表示',
+          },
+          {
+            title: '2.5 带有通用型操作的系统',
+            key: '2.5 带有通用型操作的系统',
+          },
+        ],
+      },
+      {
+        title: '第3章 模块化、对象和状态',
+        key: '第3章 模块化、对象和状态',
+        children: [
+          {
+            title: '3.1 赋值和局部状态',
+            key: '3.1 赋值和局部状态',
+          },
+          {
+            title: '3.2 求值的环境模型',
+            key: '3.2 求值的环境模型',
+          },
+          {
+            title: '3.3 用变动数据做模拟',
+            key: '3.3 用变动数据做模拟',
+          },
+          {
+            title: '3.4 并发：时间是一个本质问题',
+            key: '3.4 并发：时间是一个本质问题',
+          },
+          {
+            title: '3.5 流',
+            key: '3.5 流',
+          },
+        ],
+      },
+      {
+        title: '第4章 元语言抽象',
+        key: '第4章 元语言抽象',
+        children: [
+          {
+            title: '4.1 元循环求值器',
+            key: '4.1 元循环求值器',
+          },
+          {
+            title: '4.2 Scheme的变形——惰性求值',
+            key: '4.2 Scheme的变形——惰性求值',
+          },
+          {
+            title: '4.3 Scheme的变形——非确定性计算',
+            key: '4.3 Scheme的变形——非确定性计算',
+          },
+          {
+            title: '4.4 逻辑程序设计',
+            key: '4.4 逻辑程序设计',
+          },
+        ],
+      },
+      {
+        title: '第5章 寄存器机器里的计算',
+        key: '5',
+        children: [
+          {
+            title: '5.1 寄存器机器的设计',
+            key: '5.1 寄存器机器的设计',
+          },
+          {
+            title: '5.2 一个寄存器机器模拟器',
+            key: '5.2 一个寄存器机器模拟器',
+          },
+          {
+            title: '5.3 存储分配和废料收集',
+            key: '5.3 存储分配和废料收集',
+          },
+          {
+            title: '5.4 显式控制的求值器',
+            key: '5.4 显式控制的求值器',
+          },
+          {
+            title: '5.5 编译',
+            key: '5.5 编译',
+          },
+        ],
+      },
+      {
+        title: '参考文献',
+        key: '参考文献',
+      },
+      {
+        title: '练习表',
+        key: '练习表',
+      },
+      {
+        title: '索引',
+        key: '索引',
+      },
+    ],
   };
   render() {
     return (
-      <div>
+      <Card style={{ margin: '24px 0' }}>
         {/* 作品介绍 */}
-        <Row align="middle" style={{ padding: '24px 0' }}>
+        <Row align="middle">
           <Col span={4}>
             <Image
               width={160}
@@ -62,215 +232,67 @@ class Details extends React.Component {
                 {this.data.userInfo.textbox}
               </Descriptions.Item>
             </Descriptions>
-            ,
           </Col>
         </Row>
 
-        {/*  */}
+        {/* 课程简介  学习方法 */}
         <Row>
           <Col span={24}>
             <Typography>
               <Divider />
 
-              <Title>介绍</Title>
+              <Title level={2}>课程简介</Title>
+              <Paragraph>{this.data.courseIntroductionL}</Paragraph>
 
-              <Paragraph>
-                随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁金服体验技术部）经过大量的项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系
-                Ant Design。基于<Text mark>『确定』和『自然』</Text>
-                的设计价值观，通过模块化的解决方案，降低冗余的生产成本，让设计者专注于
-                <Text strong>更好的用户体验</Text>。
-              </Paragraph>
-              <Title level={2}>设计资源</Title>
-              <Paragraph>
-                我们提供完善的设计原则、最佳实践和设计资源文件（
-                <Text code>Sketch</Text> 和<Text code>Axure</Text>
-                ），来帮助业务快速设计出高质量的产品原型。
-              </Paragraph>
-
-              <Paragraph>
-                <ul>
-                  <li>
-                    <Link href="/docs/spec/proximity-cn">设计原则</Link>
-                  </li>
-                  <li>
-                    <Link href="/docs/spec/overview-cn">设计模式</Link>
-                  </li>
-                  <li>
-                    <Link href="/docs/resources-cn">设计资源</Link>
-                  </li>
-                </ul>
-              </Paragraph>
-
-              <Paragraph>
-                <blockquote>{blockContent}</blockquote>
-                <pre>{blockContent}</pre>
-              </Paragraph>
+              <Title level={2}>学习方法</Title>
+              <Paragraph>{this.data.learnMethod}</Paragraph>
             </Typography>
-            ,
           </Col>
         </Row>
+        <br />
 
-        {/*  */}
+        {/* 课程目录 */}
         <Row>
           <Col span={24}>
-            <Title>文章目錄</Title>
-            <SearchTree />
+            <Title level={2}>课程目录</Title>
+            <CourseCatalogue catelogue={this.data.catalogue} />
           </Col>
         </Row>
-      </div>
+
+        <Divider />
+
+        {/* 幻灯片 */}
+        <Row>
+          <Col span={24}>
+            <Title level={2}>幻灯片</Title>
+            <Anchor>
+              <Link
+                href={this.data.lanternSlide.address}
+                title={this.data.lanternSlide.name}
+              />
+            </Anchor>
+          </Col>
+        </Row>
+
+        <br />
+        {/* 作业 */}
+        <Row>
+          <Col span={24}>
+            <Title level={2}>作业</Title>
+            {this.data.work}
+          </Col>
+        </Row>
+
+        <br />
+        {/* 课程录像 */}
+        <Row>
+          <Col span={24}>
+            <Title level={2}>课程录像</Title>
+            {this.data.classVideo}
+          </Col>
+        </Row>
+      </Card>
     );
   }
 }
 export { Details };
-
-// 目录组件
-const { Search } = Input;
-
-const gData = [
-  {
-    title: '0-0',
-    key: '0-0',
-    children: [
-      {
-        title: '0-0-0',
-        key: '0-0-0',
-        children: [
-          { title: '0-0-0-0', key: '0-0-0-0' },
-          { title: '0-0-0-1', key: '0-0-0-1' },
-          { title: '0-0-0-2', key: '0-0-0-2' },
-        ],
-      },
-      {
-        title: '0-0-1',
-        key: '0-0-1',
-        children: [
-          { title: '0-0-1-0', key: '0-0-1-0' },
-          { title: '0-0-1-1', key: '0-0-1-1' },
-          { title: '0-0-1-2', key: '0-0-1-2' },
-        ],
-      },
-      {
-        title: '0-0-2',
-        key: '0-0-2',
-      },
-    ],
-  },
-  {
-    title: '0-1',
-    key: '0-1',
-    children: [
-      { title: '0-1-0-0', key: '0-1-0-0' },
-      { title: '0-1-0-1', key: '0-1-0-1' },
-      { title: '0-1-0-2', key: '0-1-0-2' },
-    ],
-  },
-  {
-    title: '0-2',
-    key: '0-2',
-  },
-];
-
-const dataList = [];
-const generateList = (data) => {
-  for (let i = 0; i < data.length; i++) {
-    const node = data[i];
-    const { key } = node;
-    dataList.push({ key, title: key });
-    if (node.children) {
-      generateList(node.children);
-    }
-  }
-  console.log(dataList);
-};
-generateList(gData);
-
-const getParentKey = (key, tree) => {
-  let parentKey;
-  for (let i = 0; i < tree.length; i++) {
-    const node = tree[i];
-    if (node.children) {
-      if (node.children.some((item) => item.key === key)) {
-        parentKey = node.key;
-      } else if (getParentKey(key, node.children)) {
-        parentKey = getParentKey(key, node.children);
-      }
-    }
-  }
-  return parentKey;
-};
-
-class SearchTree extends React.Component {
-  state = {
-    expandedKeys: [],
-    searchValue: '',
-    autoExpandParent: true,
-  };
-
-  onExpand = (expandedKeys) => {
-    this.setState({
-      expandedKeys,
-      autoExpandParent: false,
-    });
-  };
-
-  onChange = (e) => {
-    const { value } = e.target;
-    const expandedKeys = dataList
-      .map((item) => {
-        if (item.title.indexOf(value) > -1) {
-          return getParentKey(item.key, gData);
-        }
-        return null;
-      })
-      .filter((item, i, self) => item && self.indexOf(item) === i);
-    this.setState({
-      expandedKeys,
-      searchValue: value,
-      autoExpandParent: true,
-    });
-  };
-
-  render() {
-    const { searchValue, expandedKeys, autoExpandParent } = this.state;
-    const loop = (data) =>
-      data.map((item) => {
-        const index = item.title.indexOf(searchValue);
-        const beforeStr = item.title.substr(0, index);
-        const afterStr = item.title.substr(index + searchValue.length);
-        const title =
-          index > -1 ? (
-            <span>
-              {beforeStr}
-              <span className="site-tree-search-value">{searchValue}</span>
-              {afterStr}
-            </span>
-          ) : (
-            <span>{item.title}</span>
-          );
-        if (item.children) {
-          return { title, key: item.key, children: loop(item.children) };
-        }
-
-        return {
-          title,
-          key: item.key,
-        };
-      });
-    return (
-      <div>
-        <Search
-          style={{ marginBottom: 8 }}
-          placeholder="Search"
-          onChange={this.onChange}
-        />
-        <Tree
-          defaultExpandAll={false}
-          onExpand={this.onExpand}
-          expandedKeys={expandedKeys}
-          autoExpandParent={autoExpandParent}
-          treeData={loop(gData)}
-        />
-      </div>
-    );
-  }
-}
