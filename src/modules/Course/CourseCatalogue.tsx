@@ -16,7 +16,6 @@ const generateList = (data) => {
       generateList(node.children);
     }
   }
-  console.log(dataList);
 };
 
 const getParentKey = (key, tree) => {
@@ -35,7 +34,7 @@ const getParentKey = (key, tree) => {
 };
 
 class CourseCatalogue extends React.Component {
-  constructor(props) {
+  constructor(props: Array) {
     super(props);
     // 调用
     generateList(this.props.catelogue);
@@ -47,14 +46,14 @@ class CourseCatalogue extends React.Component {
     autoExpandParent: true,
   };
 
-  onExpand = (expandedKeys) => {
+  onExpand = (expandedKeys: Array): void => {
     this.setState({
       expandedKeys,
       autoExpandParent: false,
     });
   };
 
-  onChange = (e) => {
+  onChange = (e: Any): void => {
     const { value } = e.target;
     const expandedKeys = dataList
       .map((item) => {
@@ -71,7 +70,7 @@ class CourseCatalogue extends React.Component {
     });
   };
 
-  render() {
+  render(): Any {
     const { searchValue, expandedKeys, autoExpandParent } = this.state;
     const loop = (data) =>
       data.map((item) => {
