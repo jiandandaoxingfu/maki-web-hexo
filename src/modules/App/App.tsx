@@ -14,7 +14,7 @@ import {
 import { ArticleListPage } from '../Content/ContentListPage';
 import { CourseListPage } from '../Course/Courses';
 import { HomePage } from '../Home/HomePage';
-import { ProblemsPage } from '../Problems/ProblemsPage';
+import { QuestionsPage } from '../Questions/QuestionsPage';
 import { UserLoginIndicator } from '../User/UserLoginIndicator/UserLoginIndicator';
 import { BackToHome } from './components/BackToHome';
 import Scroll2Top from './components/Scroll2Top';
@@ -43,11 +43,11 @@ const Nav = withRouter(({ history }) => {
           <Menu.Item key="/content">
             <Link to="/content">文章</Link>
           </Menu.Item>
-          <Menu.Item key="/problems">
-            <Link to="/problems">
+          <Menu.Item key="/questions">
+            <Link to="/questions">
               习题集
               <Typography.Text type="danger">
-                <sup>beta</sup>
+                <sup>alpha</sup>
               </Typography.Text>
             </Link>
           </Menu.Item>
@@ -74,8 +74,8 @@ function App() {
               <Route path="/content">
                 <ArticleListPage />
               </Route>
-              <Route path="/problems">
-                <ProblemsPage />
+              <Route path="/questions">
+                <QuestionsPage />
               </Route>
               <Route path="/">
                 <HomePage></HomePage>
