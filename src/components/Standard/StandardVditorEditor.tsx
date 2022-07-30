@@ -284,7 +284,7 @@ export function VditorEditor({ id, after, input }: Props) {
     }
 
     return () => {
-      editor.destroy();
+      document.querySelector('.vditor') && editor.destroy();
     };
   }, []);
 
